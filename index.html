@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Wahyu Ramadhan - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fira+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+      body { font-family: 'DM Sans', sans-serif; background-color: #0a1628; color: #f1f5f9; }
+      h1, h2, h3 { font-family: 'Fira Sans', sans-serif; }
+      .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+      .fade-in.visible { opacity: 1; transform: translateY(0); }
+      .hero-overlay { background: linear-gradient(135deg, rgba(10,18,36,0.93), rgba(15,40,80,0.88)); }
+      .skill-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(6,182,212,0.12); }
+      .skill-card { transition: transform 0.3s, box-shadow 0.3s; }
+      .project-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+      .project-card { transition: transform 0.3s, box-shadow 0.3s; }
+      .tech-line { height: 1px; background: linear-gradient(90deg, transparent, #0ea5e9, transparent); }
+      .stat-highlight { border: 1px solid rgba(6,182,212,0.3); }
+      .glass-panel { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); }
+  </style>
+</head>
+<body class="w-full bg-[#0a1628] text-slate-100 overflow-x-hidden">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-40 bg-[#0a1628]/90 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="font-bold text-lg text-cyan-400 tracking-wider">MWR</a>
+      <div class="hidden lg:flex gap-5 text-xs font-medium uppercase tracking-wider text-slate-300 items-center">
+        <a href="#about" class="hover:text-cyan-400 transition">About</a>
+        <a href="#skills" class="hover:text-cyan-400 transition">Skills</a>
+        <a href="#experience" class="hover:text-cyan-400 transition">Experience</a>
+        <a href="#projects" class="hover:text-cyan-400 transition">Projects</a>
+        <a href="#organization" class="hover:text-cyan-400 transition">Organization</a>
+        <a href="#achievements" class="hover:text-cyan-400 transition">Achievements</a>
+        <a href="#education" class="hover:text-cyan-400 transition">Education</a>
+        <a href="#certifications" class="hover:text-cyan-400 transition">Certifications</a>
+        <a href="#publications" class="hover:text-cyan-400 transition">Publications</a>
+        <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+        <button onclick="openLoginModal()" class="ml-2 bg-cyan-600/30 border border-cyan-400/50 text-cyan-300 p-2 rounded-lg hover:bg-cyan-600 hover:text-white transition flex items-center justify-center" title="Admin Login">
+          <i data-lucide="lock" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative w-full min-h-screen flex items-center overflow-hidden">
+    <img id="hero-bg-img" class="absolute inset-0 w-full h-full object-cover" src="https://images.pexels.com/photos/8438865/pexels-photo-8438865.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Robotic Arm">
+    <div class="hero-overlay absolute inset-0"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-32">
+      <p id="hero-greeting" class="text-cyan-400 font-semibold mb-3 tracking-wide uppercase text-xs">Hello, I'm</p>
+      <h1 id="hero-name" class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight text-white">MUHAMMAD WAHYU RAMADHAN</h1>
+      <p id="hero-title" class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed">Mechatronics Engineering Technology Graduate — Ready to contribute in Automation, Maintenance, Control Systems & Industrial Engineering.</p>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-300 mb-8">
+        <span id="hero-location" class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4 text-cyan-400"></i> Batam, Indonesia</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="mail" class="w-4 h-4 text-cyan-400"></i> <span id="lbl-email">muhammadwahyuramadhan95@gmail.com</span></span>
+        <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-4 h-4 text-cyan-400"></i> <span id="lbl-phone">+62 81958701441</span></span>
+        <a id="lbl-linkedin-link" href="https://linkedin.com/in/muhammadwahyuramadhan" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-cyan-400 transition"><i data-lucide="linkedin" class="w-4 h-4 text-cyan-400"></i> LinkedIn</a>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <a href="#projects" class="px-7 py-3 rounded-xl font-semibold text-sm bg-cyan-600 text-white shadow-lg hover:bg-cyan-500 transition">View Projects</a>
+        <a href="#contact" class="px-7 py-3 rounded-xl font-medium text-sm border border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 transition">Contact Me</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-5 gap-12 items-center fade-in visible">
+        <div class="md:col-span-2 flex justify-center">
+          <img id="about-img-view" class="w-full h-auto rounded-2xl shadow-2xl object-cover aspect-[3/4]" src="https://images.pexels.com/photos/3862634/pexels-photo-3862634.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Profile" onerror="this.src='https://placehold.co/600x800/1e293b/06b6d4?text=Profile+Photo'">
+        </div>
+        <div class="md:col-span-3">
+          <h2 id="about-heading" class="text-3xl font-bold mb-6 text-white">About Me</h2>
+          <p id="about-text-view" class="text-slate-300 leading-relaxed mb-8 text-justify">Fresh graduate with a Bachelor’s Degree in Applied Mechatronics Engineering (D4) from Batam State Polytechnic, with practical knowledge in industrial automation, manufacturing processes and control systems, maintenance, mechatronics product design and development, and technical document management. Possesses 6 months of practical experience from an industrial internship at PT Epson Batam in monitoring chiller systems and energy conservation using HMI/IoT, performing Preventive Maintenance (PM), managing Safety Data Sheets (SDS), and implementing Occupational Safety and Health (OSH) standards.</p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="stats-container">
+            <div class="stat-highlight text-center p-4 bg-slate-900/50 rounded-xl">
+              <div class="text-2xl font-bold text-cyan-400">3.75</div>
+              <div class="text-xs text-slate-400 mt-1">GPA / 4.00</div>
+            </div>
+            <a href="#projects" class="stat-highlight text-center p-4 bg-slate-900/50 rounded-xl hover:border-cyan-400/80 transition block group">
+              <div class="text-2xl font-bold text-cyan-400 group-hover:scale-105 transition-transform">6+</div>
+              <div class="text-xs text-slate-400 mt-1">Projects</div>
+            </a>
+            <a href="#achievements" class="stat-highlight text-center p-4 bg-slate-900/50 rounded-xl hover:border-cyan-400/80 transition block group">
+              <div class="text-2xl font-bold text-cyan-400 group-hover:scale-105 transition-transform">2</div>
+              <div class="text-xs text-slate-400 mt-1">Awards</div>
+            </a>
+            <div class="stat-highlight text-center p-4 bg-slate-900/50 rounded-xl">
+              <div class="text-2xl font-bold text-cyan-400">6 mo</div>
+              <div class="text-xs text-slate-400 mt-1">Internship</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="tech-line max-w-4xl mx-auto"></div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-16 text-white">Technical Skills</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="skills-container"></div>
+      </div>
+    </section>
+    <div class="tech-line max-w-4xl mx-auto"></div>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-16 text-white">Industrial Experience</h2>
+        <div id="experience-img-wrap" class="mb-8 overflow-hidden rounded-2xl border border-cyan-500/30 shadow-2xl">
+          <img id="exp-img-view" class="w-full h-64 md:h-80 object-cover" src="https://images.pexels.com/photos/37913513/pexels-photo-37913513.jpeg" alt="Chiller System" onerror="this.src='https://placehold.co/800x400/1e293b/06b6d4?text=Experience+Banner'">
+        </div>
+        <div class="border-l-2 border-cyan-500 pl-6 space-y-3">
+          <p class="text-cyan-400 text-xs font-semibold uppercase tracking-wider" id="exp-date-view">Jan 2026 – Jun 2026</p>
+          <h3 class="font-bold text-xl text-white" id="exp-title-view">PT. Epson Batam — Facility & Safety Management</h3>
+          <p class="text-xs text-slate-400 font-medium" id="exp-role-view">Internship Student — Facility System Development & Monitoring</p>
+          <div class="text-sm text-slate-300 leading-relaxed pt-2 text-justify" id="exp-desc-view">
+            Managed MEP & utility monitoring, designed control panel wiring, performed HMI-based real-time monitoring for Power Saving Chiller system, preventive maintenance planning, and OHS compliance documentation.
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="tech-line max-w-4xl mx-auto"></div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-16 text-white">Projects</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-container"></div>
+      </div>
+    </section>
+    <div class="tech-line max-w-4xl mx-auto"></div>
+
+    <!-- Organization Section -->
+    <section id="organization" class="py-24 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-16 text-white">Organizational Experience</h2>
+        <div class="space-y-12" id="org-container"></div>
+      </div>
+    </section>
+    <div class="tech-line max-w-4xl mx-auto"></div>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-24 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-16 text-white">Achievements</h2>
+        <div class="grid md:grid-cols-2 gap-6" id="achievements-container"></div>
+      </div>
+    </section>
+    <div class="tech-line max-w-4xl mx-auto"></div>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-16 text-white">Education</h2>
+        <div class="space-y-8" id="education-container"></div>
+      </div>
+    </section>
+    <div class="tech-line max-w-4xl mx-auto"></div>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-24 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-16 text-white">Certifications</h2>
+        <div class="grid sm:grid-cols-2 gap-4" id="cert-container"></div>
+      </div>
+    </section>
+    <div class="tech-line max-w-4xl mx-auto"></div>
+
+    <!-- Publications & IP Rights Section -->
+    <section id="publications" class="py-24 px-6">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-16 text-white">Publikasi Ilmiah & HKI</h2>
+        <div class="grid md:grid-cols-2 gap-8" id="pub-container"></div>
+      </div>
+    </section>
+    <div class="tech-line max-w-4xl mx-auto"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6 text-white">Let's Connect</h2>
+        <p class="text-slate-400 mb-10 text-xs max-w-xl mx-auto leading-relaxed" id="contact-desc-view">Siap berkontribusi secara teknis dan meningkatkan efisiensi operasional di sektor industri. Mari berdiskusi tentang peluang kolaborasi.</p>
+        <div class="flex flex-wrap justify-center gap-6">
+          <a id="contact-email-link" href="mailto:muhammadwahyuramadhan95@gmail.com" class="flex items-center gap-2.5 px-6 py-3.5 bg-slate-900 border border-slate-800 rounded-xl hover:border-cyan-500/50 transition">
+            <i data-lucide="mail" class="w-5 h-5 text-cyan-400"></i>
+            <span class="text-xs text-white" id="contact-email-text">muhammadwahyuramadhan95@gmail.com</span>
+          </a>
+          <a id="contact-linkedin-link" href="https://linkedin.com/in/muhammadwahyuramadhan" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-6 py-3.5 bg-slate-900 border border-slate-800 rounded-xl hover:border-cyan-500/50 transition">
+            <i data-lucide="linkedin" class="w-5 h-5 text-cyan-400"></i>
+            <span class="text-xs text-white">LinkedIn Profile</span>
+          </a>
+          <a id="contact-phone-link" href="tel:+6281958701441" class="flex items-center gap-2.5 px-6 py-3.5 bg-slate-900 border border-slate-800 rounded-xl hover:border-cyan-500/50 transition">
+            <i data-lucide="phone" class="w-5 h-5 text-cyan-400"></i>
+            <span class="text-xs text-white" id="contact-phone-text">+62 819-5870-1441</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-900 py-8 px-6 text-center">
+    <p class="text-xs text-slate-500">© 2026 Muhammad Wahyu Ramadhan. All rights reserved.</p>
+  </footer>
+
+  <!-- Admin Login Modal -->
+  <div id="loginModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 w-full max-w-md p-8 rounded-2xl shadow-2xl relative space-y-6">
+      <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+      <div class="text-center space-y-2">
+        <h3 class="text-xl font-bold text-white">Admin Login</h3>
+        <p class="text-xs text-slate-400">Masukkan PIN Admin Anda</p>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <label class="text-[10px] uppercase font-semibold text-slate-400">PIN Admin</label>
+          <input type="password" id="adminPinInput" placeholder="Masukkan PIN..." class="w-full mt-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500">
+        </div>
+        <button class="btn-login-admin w-full bg-cyan-600 hover:bg-cyan-500 text-white font-semibold py-3 rounded-xl transition text-sm shadow-lg">Login</button>
+        <div id="loginStatusMessage" style="text-align: center; margin-top: 12px; font-weight: 600; font-size: 14px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Panel Dashboard Modal -->
+  <div id="adminPanelModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden flex flex-col">
+    <div class="bg-slate-900 border-b border-slate-800 px-6 py-4 flex justify-between items-center">
+      <h2 class="text-base font-bold text-white flex items-center gap-2"><i data-lucide="settings" class="w-5 h-5 text-cyan-400"></i> Admin Panel Control</h2>
+      <div class="flex items-center gap-3">
+        <button onclick="saveAllChanges()" class="bg-cyan-600 hover:bg-cyan-500 text-white px-5 py-2 rounded-xl text-xs font-semibold shadow transition">Simpan Perubahan</button>
+        <button onclick="closeAdminPanel()" class="text-slate-400 hover:text-white p-2"><i data-lucide="x" class="w-6 h-6"></i></button>
+      </div>
+    </div>
+    <div class="flex-1 flex overflow-hidden">
+      <!-- Sidebar Tabs -->
+      <div class="w-64 bg-slate-900/50 border-r border-slate-800 p-4 space-y-2 overflow-y-auto text-xs font-semibold">
+        <button onclick="switchAdminTab('tab-profile')" class="admin-tab-btn w-full text-left px-4 py-3 rounded-xl bg-cyan-600 text-white transition flex items-center gap-2" data-target="tab-profile"><i data-lucide="user" class="w-4 h-4"></i> Profile & About</button>
+        <button onclick="switchAdminTab('tab-skills')" class="admin-tab-btn w-full text-left px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2" data-target="tab-skills"><i data-lucide="cpu" class="w-4 h-4"></i> Skills</button>
+        <button onclick="switchAdminTab('tab-experience')" class="admin-tab-btn w-full text-left px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2" data-target="tab-experience"><i data-lucide="briefcase" class="w-4 h-4"></i> Experience</button>
+        <button onclick="switchAdminTab('tab-projects')" class="admin-tab-btn w-full text-left px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2" data-target="tab-projects"><i data-lucide="folder-kanban" class="w-4 h-4"></i> Projects</button>
+        <button onclick="switchAdminTab('tab-org')" class="admin-tab-btn w-full text-left px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2" data-target="tab-org"><i data-lucide="users" class="w-4 h-4"></i> Organization</button>
+        <button onclick="switchAdminTab('tab-achievements')" class="admin-tab-btn w-full text-left px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2" data-target="tab-achievements"><i data-lucide="award" class="w-4 h-4"></i> Achievements</button>
+        <button onclick="switchAdminTab('tab-edu')" class="admin-tab-btn w-full text-left px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2" data-target="tab-edu"><i data-lucide="graduation-cap" class="w-4 h-4"></i> Education</button>
+        <button onclick="switchAdminTab('tab-cert')" class="admin-tab-btn w-full text-left px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2" data-target="tab-cert"><i data-lucide="file-badge" class="w-4 h-4"></i> Certifications</button>
+        <button onclick="switchAdminTab('tab-pub')" class="admin-tab-btn w-full text-left px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2" data-target="tab-pub"><i data-lucide="book-open" class="w-4 h-4"></i> Publications & HKI</button>
+        <button onclick="switchAdminTab('tab-contact')" class="admin-tab-btn w-full text-left px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2" data-target="tab-contact"><i data-lucide="phone-call" class="w-4 h-4"></i> Contact</button>
+      </div>
+
+      <!-- Content Area -->
+      <div class="flex-1 overflow-y-auto p-8 bg-slate-950">
+        <!-- Tab Profile -->
+        <div id="tab-profile" class="admin-tab-content space-y-6 max-w-3xl">
+          <h3 class="text-lg font-bold text-white">Edit Profile & About</h3>
+          <div class="space-y-4">
+            <div><label class="text-[10px] text-slate-400 uppercase font-semibold">Nama Lengkap</label><input type="text" id="admin-name" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white"></div>
+            <div><label class="text-[10px] text-slate-400 uppercase font-semibold">Judul Profesional / Headline</label><input type="text" id="admin-title" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white"></div>
+            <div><label class="text-[10px] text-slate-400 uppercase font-semibold">URL Foto About Me</label><input type="text" id="admin-about-img" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white" placeholder="https://images.pexels.com/..."></div>
+            <div class="grid grid-cols-3 gap-3">
+              <div><label class="text-[10px] text-slate-400 uppercase font-semibold">Lebar Foto (Width Class)</label><input type="text" id="admin-about-width" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white" placeholder="w-full, max-w-sm, etc."></div>
+              <div><label class="text-[10px] text-slate-400 uppercase font-semibold">Tinggi Foto (Height Class)</label><input type="text" id="admin-about-height" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white" placeholder="h-auto, h-96, etc."></div>
+              <div><label class="text-[10px] text-slate-400 uppercase font-semibold">Rasio Aspek</label><input type="text" id="admin-about-aspect" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white" placeholder="aspect-[3/4]"></div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <label class="text-[10px] text-slate-400 uppercase font-semibold">Deskripsi About Me</label>
+                <select id="admin-about-align" class="bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-xs text-cyan-400">
+                  <option value="text-justify">Rata Kanan-Kiri (Justify)</option>
+                  <option value="text-left">Rata Kiri</option>
+                  <option value="text-center">Rata Tengah</option>
+                  <option value="text-right">Rata Kanan</option>
+                </select>
+              </div>
+              <textarea id="admin-about-desc" rows="6" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-4 text-sm text-white"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Skills -->
+        <div id="tab-skills" class="admin-tab-content space-y-6 max-w-3xl hidden">
+          <div class="flex justify-between items-center"><h3 class="text-lg font-bold text-white">Edit Skills</h3><button onclick="addSkillItem()" class="bg-cyan-600 hover:bg-cyan-500 text-white px-4 py-2 rounded-xl text-xs font-semibold">+ Tambah Skill</button></div>
+          <div class="flex items-center gap-2 mb-4">
+            <label class="text-xs text-slate-400">Perataan Teks Deskripsi Skills:</label>
+            <select id="skills-align" class="bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-xs text-cyan-400">
+              <option value="text-justify">Justify</option>
+              <option value="text-left">Rata Kiri</option>
+              <option value="text-center">Rata Tengah</option>
+            </select>
+          </div>
+          <div id="admin-skills-list" class="space-y-4"></div>
+        </div>
+
+        <!-- Tab Experience -->
+        <div id="tab-experience" class="admin-tab-content space-y-6 max-w-3xl hidden">
+          <h3 class="text-lg font-bold text-white">Edit Industrial Experience</h3>
+          <div class="space-y-4">
+            <div><label class="text-[10px] text-slate-400 uppercase font-semibold">URL Foto Banner Experience</label><input type="text" id="admin-exp-img" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white"></div>
+            <div><label class="text-[10px] text-slate-400 uppercase font-semibold">Periode</label><input type="text" id="admin-exp-date" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white"></div>
+            <div><label class="text-[10px] text-slate-400 uppercase font-semibold">Judul Perusahaan / Posisi</label><input type="text" id="admin-exp-title" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white"></div>
+            <div><label class="text-[10px] text-slate-400 uppercase font-semibold">Sub Judul</label><input type="text" id="admin-exp-role" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white"></div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <label class="text-[10px] text-slate-400 uppercase font-semibold">Deskripsi Experience</label>
+                <select id="admin-exp-align" class="bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-xs text-cyan-400">
+                  <option value="text-justify">Justify</option>
+                  <option value="text-left">Rata Kiri</option>
+                  <option value="text-center">Rata Tengah</option>
+                </select>
+              </div>
+              <textarea id="admin-exp-desc" rows="5" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-4 text-sm text-white"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Projects -->
+        <div id="tab-projects" class="admin-tab-content space-y-6 max-w-3xl hidden">
+          <div class="flex justify-between items-center"><h3 class="text-lg font-bold text-white">Manajemen Proyek Aktif</h3><button onclick="addProjectItem()" class="bg-cyan-600 hover:bg-cyan-500 text-white px-4 py-2 rounded-xl text-xs font-semibold">+ Tambah Proyek</button></div>
+          <div class="flex items-center gap-2 mb-4">
+            <label class="text-xs text-slate-400">Perataan Teks Deskripsi Projects:</label>
+            <select id="projects-align" class="bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-xs text-cyan-400">
+              <option value="text-justify">Justify</option>
+              <option value="text-left">Rata Kiri</option>
+              <option value="text-center">Rata Tengah</option>
+            </select>
+          </div>
+          <div id="admin-projects-list" class="space-y-4"></div>
+        </div>
+
+        <!-- Tab Organization -->
+        <div id="tab-org" class="admin-tab-content space-y-6 max-w-3xl hidden">
+          <div class="flex justify-between items-center"><h3 class="text-lg font-bold text-white">Manajemen Organisasi</h3><button onclick="addOrgItem()" class="bg-cyan-600 hover:bg-cyan-500 text-white px-4 py-2 rounded-xl text-xs font-semibold">+ Tambah Organisasi</button></div>
+          <div class="flex items-center gap-2 mb-4">
+            <label class="text-xs text-slate-400">Perataan Teks Deskripsi Organization:</label>
+            <select id="org-align" class="bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-xs text-cyan-400">
+              <option value="text-justify">Justify</option>
+              <option value="text-left">Rata Kiri</option>
+              <option value="text-center">Rata Tengah</option>
+            </select>
+          </div>
+          <div id="admin-org-list" class="space-y-4"></div>
+        </div>
+
+        <!-- Tab Achievements -->
+        <div id="tab-achievements" class="admin-tab-content space-y-6 max-w-3xl hidden">
+          <div class="flex justify-between items-center"><h3 class="text-lg font-bold text-white">Manajemen Achievements</h3><button onclick="addAchItem()" class="bg-cyan-600 hover:bg-cyan-500 text-white px-4 py-2 rounded-xl text-xs font-semibold">+ Tambah Penghargaan</button></div>
+          <div class="flex items-center gap-2 mb-4">
+            <label class="text-xs text-slate-400">Perataan Teks Deskripsi Achievements:</label>
+            <select id="ach-align" class="bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-xs text-cyan-400">
+              <option value="text-justify">Justify</option>
+              <option value="text-left">Rata Kiri</option>
+              <option value="text-center">Rata Tengah</option>
+            </select>
+          </div>
+          <div id="admin-ach-list" class="space-y-4"></div>
+        </div>
+
+        <!-- Tab Education -->
+        <div id="tab-edu" class="admin-tab-content space-y-6 max-w-3xl hidden">
+          <div class="flex justify-between items-center"><h3 class="text-lg font-bold text-white">Manajemen Education</h3><button onclick="addEduItem()" class="bg-cyan-600 hover:bg-cyan-500 text-white px-4 py-2 rounded-xl text-xs font-semibold">+ Tambah Pendidikan</button></div>
+          <div class="flex items-center gap-2 mb-4">
+            <label class="text-xs text-slate-400">Perataan Teks Deskripsi Education:</label>
+            <select id="edu-align" class="bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-xs text-cyan-400">
+              <option value="text-justify">Justify</option>
+              <option value="text-left">Rata Kiri</option>
+              <option value="text-center">Rata Tengah</option>
+            </select>
+          </div>
+          <div id="admin-edu-list" class="space-y-4"></div>
+        </div>
+
+        <!-- Tab Certifications -->
+        <div id="tab-cert" class="admin-tab-content space-y-6 max-w-3xl hidden">
+          <div class="flex justify-between items-center"><h3 class="text-lg font-bold text-white">Manajemen Certifications</h3><button onclick="addCertItem()" class="bg-cyan-600 hover:bg-cyan-500 text-white px-4 py-2 rounded-xl text-xs font-semibold">+ Tambah Sertifikat</button></div>
+          <div class="flex items-center gap-2 mb-4">
+            <label class="text-xs text-slate-400">Perataan Teks Deskripsi Certifications:</label>
+            <select id="cert-align" class="bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-xs text-cyan-400">
+              <option value="text-justify">Justify</option>
+              <option value="text-left">Rata Kiri</option>
+              <option value="text-center">Rata Tengah</option>
+            </select>
+          </div>
+          <div id="admin-cert-list" class="space-y-4"></div>
+        </div>
+
+        <!-- Tab Publications -->
+        <div id="tab-pub" class="admin-tab-content space-y-6 max-w-3xl hidden">
+          <div class="flex justify-between items-center"><h3 class="text-lg font-bold text-white">Manajemen Publications & HKI</h3><button onclick="addPubItem()" class="bg-cyan-600 hover:bg-cyan-500 text-white px-4 py-2 rounded-xl text-xs font-semibold">+ Tambah Publikasi/HKI</button></div>
+          <div class="flex items-center gap-2 mb-4">
+            <label class="text-xs text-slate-400">Perataan Teks Deskripsi Publications:</label>
+            <select id="pub-align" class="bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-xs text-cyan-400">
+              <option value="text-justify">Justify</option>
+              <option value="text-left">Rata Kiri</option>
+              <option value="text-center">Rata Tengah</option>
+            </select>
+          </div>
+          <div id="admin-pub-list" class="space-y-4"></div>
+        </div>
+
+        <!-- Tab Contact -->
+        <div id="tab-contact" class="admin-tab-content space-y-6 max-w-3xl hidden">
+          <h3 class="text-lg font-bold text-white">Edit Contact Information</h3>
+          <div class="space-y-4">
+            <div><label class="text-[10px] text-slate-400 uppercase font-semibold">Email</label><input type="text" id="admin-contact-email" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white"></div>
+            <div><label class="text-[10px] text-slate-400 uppercase font-semibold">Nomor Telepon</label><input type="text" id="admin-contact-phone" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white"></div>
+            <div><label class="text-[10px] text-slate-400 uppercase font-semibold">URL Link LinkedIn</label><input type="text" id="admin-contact-linkedin" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white"></div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <label class="text-[10px] text-slate-400 uppercase font-semibold">Deskripsi Contact Section</label>
+                <select id="admin-contact-align" class="bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-xs text-cyan-400">
+                  <option value="text-center">Rata Tengah</option>
+                  <option value="text-justify">Justify</option>
+                  <option value="text-left">Rata Kiri</option>
+                </select>
+              </div>
+              <textarea id="admin-contact-desc" rows="3" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-4 text-sm text-white"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Alert Notification Box -->
+  <div id="customMsgModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 w-full max-w-sm p-6 rounded-2xl text-center space-y-4">
+      <h3 id="customMsgTitle" class="text-lg font-bold text-white">Informasi</h3>
+      <p id="customMsgText" class="text-xs text-slate-300"></p>
+      <button onclick="closeCustomMsg()" class="w-full bg-cyan-600 hover:bg-cyan-500 text-white py-2.5 rounded-xl text-xs font-semibold">OK</button>
+    </div>
+  </div>
+
+  <script>
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwIOHF0DjhZiCygqKME8e-FIr64RD03_x3eNfcefH2_W64TDrCO4EqCyUsKrEcJkfSHMQ/exec";
+
+    const defaultData = {
+      name: "MUHAMMAD WAHYU RAMADHAN",
+      title: "Mechatronics Engineering Technology Graduate — Ready to contribute in Automation, Maintenance, Control Systems & Industrial Engineering.",
+      aboutImg: "https://images.pexels.com/photos/3862634/pexels-photo-3862634.jpeg?auto=compress&cs=tinysrgb&w=800",
+      aboutWidth: "w-full",
+      aboutAspect: "aspect-[3/4]",
+      aboutAlign: "text-justify",
+      aboutText: "Fresh graduate with a Bachelor’s Degree in Applied Mechatronics Engineering (D4) from Batam State Polytechnic, with practical knowledge in industrial automation, manufacturing processes and control systems, maintenance, mechatronics product design and development, and technical document management. Possesses 6 months of practical experience from an industrial internship at PT Epson Batam in monitoring chiller systems and energy conservation using HMI/IoT, performing Preventive Maintenance (PM), managing Safety Data Sheets (SDS), and implementing Occupational Safety and Health (OSH) standards.",
+      skillsAlign: "text-justify",
+      skills: [
+        { icon: "⚡", title: "Control & Automation", desc: "PLC Programming (GX-Works3, CX-Programmer), Sensor & Actuator Integration, Industrial Controllers" },
+        { icon: "🔧", title: "Electrical & Mechanical", desc: "Panel Wiring, Electrical Installation, Pneumatic Systems & Circuit Design, Festo FluidSIM" },
+        { icon: "💻", title: "Software & Tools", desc: "SolidWorks, AutoCAD 2D/3D, SolidWorks Electrical, Minitab, Microsoft Office" },
+        { icon: "📋", title: "Project Management", desc: "Project Planning & Scheduling, Technical Documentation, Team Coordination, Troubleshooting" }
+      ],
+      expImg: "https://images.pexels.com/photos/37913513/pexels-photo-37913513.jpeg",
+      expDate: "Jan 2026 – Jun 2026",
+      expTitle: "PT. Epson Batam — Facility & Safety Management",
+      expRole: "Internship Student — Facility System Development & Monitoring, Preventive Maintenance, Documentation & Operations",
+      expDesc: "MEP & Utility Monitoring: Designed control panel wiring, performed HMI-based real-time monitoring for the Power Saving Chiller system, and conducted daily data logging. Managed preventive maintenance planning and Safety Data Sheet (SDS) documentation.",
+      expAlign: "text-justify",
+      projectsAlign: "text-justify",
+      projects: [
+        { title: "Smart Bolt Sorting System (IoT)", desc: "Final Year Project — An IoT-based automatic bolt sorting system integrating sensors, actuators, a microcontroller, and real-time data monitoring.", img: "https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg?auto=compress&cs=tinysrgb&w=800", url: "#" },
+        { title: "Smart Bowl Feeder System", desc: "PBL Sem. 6 — Coordinator Project for an IoT-based smart bowl feeder for sorting small industrial components.", img: "https://images.pexels.com/photos/3862372/pexels-photo-3862372.jpeg?auto=compress&cs=tinysrgb&w=800", url: "#" },
+        { title: "VR Simulation — PLC Wiring Trainer", desc: "PBL Sem. 3–5 — Interactive VR learning media for PLC wiring kit trainer simulations.", img: "https://images.pexels.com/photos/8097890/pexels-photo-8097890.jpeg?auto=compress&cs=tinysrgb&w=800", url: "#" },
+        { title: "Smart Agricultural IoT System", desc: "PKM Competition — An IoT-based automated irrigation system for efficient watering in modern agriculture.", img: "https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800", url: "#" },
+        { title: "Mini CIM (Computer Integrated Manufacturing)", desc: "PBL Sem. 2 — Wiring installation, sensor layout, and integration of industrial actuators.", img: "https://images.pexels.com/photos/3862153/pexels-photo-3862153.jpeg?auto=compress&cs=tinysrgb&w=800", url: "#" },
+        { title: "Arduino-Based Robotic Arm", desc: "PBL Sem. 1 — Design and assembly of the electrical and mechanical systems for an Arduino robotic arm.", img: "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800", url: "#" }
+      ],
+      orgAlign: "text-justify",
+      organizations: [
+        { date: "Jan 2023 – Dec 2023", title: "Electrical Engineering Student Association (HME) — Politeknik Negeri Batam", role: "Staff of Entrepreneurship Division", desc: "Supported business development programs, managed official merchandise sales and digital promotion, and assisted coordination with vendors and external business partners." }
+      ],
+      achAlign: "text-justify",
+      achievements: [
+        { icon: "🏆", title: "1st Winner — Automation System Category, PBL Expo", desc: "Politeknik Negeri Batam, Agustus 2024. Merancang dan membangun sistem otomasi terbaik dalam kategori Automation di PBL Expo." },
+        { icon: "🎓", title: "National Grant Recipient — PKM-KI", desc: "Dirjen Diktiristek Kemdikbudristek, November 2024. Co-developed IoT-based automated sensor system untuk smart Farming monitoring." }
+      ],
+      eduAlign: "text-justify",
+      education: [
+        { date: "Aug 2022 – Jul 2026", title: "Politeknik Negeri Batam — D4 Teknik Mekatronika", desc: "IPK 3.75/4.00 • Juara 1 PBL Expo Kategori Automation • Penerima Hibah PKM Nasional 2024 • Final Project: IoT-based Smart Bolt Sorting System" },
+        { date: "Jul 2019 – Jun 2022", title: "SMKN 1 Pariaman — Teknik Instalasi Tenaga Listrik", desc: "Nilai 85.35/100 • Kompetensi instalasi listrik perumahan & komersial • Uji kompetensi desain dan implementasi rangkaian instalasi listrik" }
+      ],
+      certAlign: "text-justify",
+      certifications: [
+        { title: "Certificate of Apprenticeship — Facility & Safety Management", desc: "PT Epson Batam — Jan–Jun 2026 • Reg. No: 6226029", url: "#" },
+        { title: "PBL — IoT Smart Sorting", desc: "Politeknik Negeri Batam — August 2025", url: "#" },
+        { title: "PBL — VR Development", desc: "Politeknik Negeri Batam — August 2025", url: "#" },
+        { title: "Student Creativity Program (PKM)", desc: "Directorate General of Higher Education, Indonesia — 2024", url: "#" },
+        { title: "1st Winner — Automation System Category (PBL EXPO 2024)", desc: "Politeknik Negeri Batam — August 2024", url: "#" },
+        { title: "Networking Essentials — Cisco Academy", desc: "Cisco Networking Academy — July 2024", url: "#" }
+      ],
+      pubAlign: "text-justify",
+      publications: [
+        { type: "Scientific Writing", title: "Publikasi Tulisan Ilmiah", desc: "Dokumentasi riset dan tulisan ilmiah untuk Final Project: Sistem Penyortiran Baut Pintar Berbasis IoT (Internet of Things).", institution: "Politeknik Negeri Batam", cat: "Tugas Akhir", year: "2025", hkiTitle: "", hkiApp: "", hkiDate: "", hkiHolder: "", hkiStatus: "", hkiUrl: "#" },
+        { type: "Intellectual Property", title: "Hak Atas Kekayaan Intelektual (HKI)", subtitle: "Paten Sederhana", desc: "", institution: "", cat: "", year: "", hkiTitle: "Sistem Penyortiran Baut Pintar Berbasis IoT (Internet of Things)", hkiApp: "S00202510501", hkiDate: "17 Oktober 2025", hkiHolder: "Politeknik Negeri Batam", hkiStatus: "Permohonan Paten Sederhana", hkiUrl: "https://pdki-indonesia.dgip.go.id/detail/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" }
+      ],
+      contactEmail: "muhammadwahyuramadhan95@gmail.com",
+      contactPhone: "+62 81958701441",
+      contactLinkedin: "https://linkedin.com/in/muhammadwahyuramadhan",
+      contactDesc: "Siap berkontribusi secara teknis dan meningkatkan efisiensi operasional di sektor industri. Mari berdiskusi tentang peluang kolaborasi.",
+      contactAlign: "text-center"
+    };
+
+    function getAppData() {
+      const stored = localStorage.getItem('mwr_portfolio_data');
+      return stored ? JSON.parse(stored) : defaultData;
+    }
+
+    function saveAppData(data) {
+      localStorage.setItem('mwr_portfolio_data', JSON.stringify(data));
+      renderPortfolio();
+    }
+
+    function renderPortfolio() {
+      const data = getAppData();
+      
+      document.getElementById('hero-name').textContent = data.name;
+      document.getElementById('hero-title').textContent = data.title;
+      document.getElementById('lbl-email').textContent = data.contactEmail;
+      document.getElementById('lbl-phone').textContent = data.contactPhone;
+      document.getElementById('lbl-linkedin-link').href = data.contactLinkedin;
+
+      const aboutImgEl = document.getElementById('about-img-view');
+      const imgSrc = (data.aboutImg && data.aboutImg.trim() !== '') ? data.aboutImg : defaultData.aboutImg;
+      aboutImgEl.src = imgSrc;
+      const customWidth = data.aboutWidth || 'w-full';
+      const customHeight = data.aboutHeight || 'h-auto';
+      const customAspect = data.aboutAspect || 'aspect-[3/4]';
+      aboutImgEl.className = `${customWidth} ${customHeight} rounded-2xl shadow-2xl object-cover ${customAspect}`;
+      
+      const aboutDescEl = document.getElementById('about-text-view');
+      aboutDescEl.textContent = data.aboutText || defaultData.aboutText;
+      aboutDescEl.className = `text-slate-300 leading-relaxed mb-8 ${data.aboutAlign || 'text-justify'}`;
+
+      const skillsContainer = document.getElementById('skills-container');
+      const sAlign = data.skillsAlign || 'text-justify';
+      skillsContainer.innerHTML = data.skills.map(s => `
+        <div class="glass-panel skill-card p-6 rounded-2xl border border-slate-800">
+          <div class="text-3xl mb-4">${s.icon}</div>
+          <h3 class="font-bold mb-3 text-white">${s.title}</h3>
+          <p class="text-xs text-slate-400 leading-relaxed ${sAlign}">${s.desc}</p>
+        </div>
+      `).join('');
+
+      document.getElementById('exp-img-view').src = data.expImg || defaultData.expImg;
+      document.getElementById('exp-date-view').textContent = data.expDate;
+      document.getElementById('exp-title-view').textContent = data.expTitle;
+      document.getElementById('exp-role-view').textContent = data.expRole;
+      const expDescEl = document.getElementById('exp-desc-view');
+      expDescEl.textContent = data.expDesc;
+      expDescEl.className = `text-sm text-slate-300 leading-relaxed pt-2 ${data.expAlign}`;
+
+      const projContainer = document.getElementById('projects-container');
+      const pAlign = data.projectsAlign || 'text-justify';
+      projContainer.innerHTML = data.projects.map(p => `
+        <div class="project-card rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 flex flex-col justify-between">
+          <div class="overflow-hidden h-44"><img src="${p.img}" class="w-full h-full object-cover" alt="Project" onerror="this.src='https://placehold.co/600x400/1e293b/06b6d4?text=Project+Image'"></div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold mb-2 text-white">${p.title}</h3>
+              <p class="text-xs text-slate-400 ${pAlign}">${p.desc}</p>
+            </div>
+            ${p.url && p.url !== '#' ? `<div class="mt-4 pt-3 border-t border-slate-800"><a href="${p.url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-cyan-400 font-semibold hover:underline">Lihat Proyek <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a></div>` : ''}
+          </div>
+        </div>
+      `).join('');
+
+      const orgContainer = document.getElementById('org-container');
+      const oAlign = data.orgAlign || 'text-justify';
+      orgContainer.innerHTML = data.organizations.map(o => `
+        <div class="border-l-2 border-cyan-500 pl-6 space-y-2">
+          <p class="text-cyan-400 text-xs font-semibold uppercase">${o.date}</p>
+          <h3 class="font-bold text-lg text-white">${o.title}</h3>
+          <p class="text-xs font-semibold text-cyan-300">${o.role}</p>
+          <p class="text-xs text-slate-400 ${oAlign}">${o.desc}</p>
+        </div>
+      `).join('');
+
+      const achContainer = document.getElementById('achievements-container');
+      achContainer.innerHTML = data.achievements.map(a => `
+        <a href="${a.url && a.url !== '#' ? a.url : 'javascript:void(0)'}" ${a.url && a.url !== '#' ? 'target="_blank" rel="noopener noreferrer"' : ''} class="glass-panel p-6 rounded-2xl border border-slate-800 transition-all hover:border-cyan-500/50 hover:shadow-lg flex flex-col justify-between group">
+          <div>
+            <div class="flex justify-between items-start">
+              <div class="text-3xl mb-3">${a.icon}</div>
+              ${a.url && a.url !== '#' ? '<i data-lucide="external-link" class="text-cyan-400 shrink-0 mt-0.5" style="width:14px;height:14px"></i>' : ''}
+            </div>
+            <h3 class="font-bold mb-2 text-white group-hover:text-cyan-400 transition-colors">${a.title}</h3>
+            <p class="text-xs text-slate-400 ${data.achAlign || 'text-justify'}">${a.desc}</p>
+          </div>
+        </a>
+      `).join('');
+
+      const eduContainer = document.getElementById('education-container');
+      eduContainer.innerHTML = data.education.map(e => `
+        <div class="border-l-2 border-cyan-500 pl-6 space-y-2">
+          <p class="text-cyan-400 text-xs font-semibold uppercase">${e.date}</p>
+          <h3 class="font-bold text-lg text-white">${e.title}</h3>
+          <p class="text-xs text-slate-400 ${data.eduAlign || 'text-justify'}">${e.desc}</p>
+        </div>
+      `).join('');
+
+      const certContainer = document.getElementById('cert-container');
+      certContainer.innerHTML = data.certifications.map(c => `
+        <a href="${c.url && c.url !== '#' ? c.url : 'javascript:void(0)'}" ${c.url && c.url !== '#' ? 'target="_blank" rel="noopener noreferrer"' : ''} class="glass-panel p-6 rounded-2xl border border-slate-800 shadow-sm flex flex-col justify-between transition-all hover:border-cyan-500/50 hover:shadow-lg group">
+          <div>
+            <div class="flex justify-between items-start gap-2">
+              <h3 class="font-bold text-sm text-white group-hover:text-cyan-400 transition-colors">${c.title}</h3>
+              ${c.url && c.url !== '#' ? '<i data-lucide="external-link" class="text-cyan-400 shrink-0 mt-0.5" style="width:14px;height:14px"></i>' : ''}
+            </div>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed ${data.certAlign || 'text-justify'}">${c.desc}</p>
+          </div>
+        </a>
+      `).join('');
+
+      const pubContainer = document.getElementById('pub-container');
+      const pubAlign = data.pubAlign || 'text-justify';
+      pubContainer.innerHTML = data.publications.map(pub => {
+        if(pub.hkiTitle) {
+          return `
+            <div class="glass-panel rounded-2xl border border-amber-500/40 overflow-hidden">
+              <div class="bg-gradient-to-r from-amber-600/20 to-orange-600/20 px-6 py-4 border-b border-amber-500/30">
+                <span class="text-[10px] font-bold bg-amber-500/30 text-amber-300 px-3 py-1 rounded-full uppercase tracking-wider">Intellectual Property</span>
+                <h3 class="font-bold text-base text-white mt-2">${pub.title}</h3>
+                <p class="text-xs text-amber-300 font-medium">${pub.subtitle || ''}</p>
+              </div>
+              <div class="p-6 space-y-3 text-xs">
+                <div><p class="text-[10px] font-semibold text-slate-400 uppercase">Judul HKI</p><p class="text-slate-200 font-medium mt-0.5">${pub.hkiTitle}</p></div>
+                <div><p class="text-[10px] font-semibold text-slate-400 uppercase">Nomor Permohonan</p><p class="text-cyan-300 font-mono mt-0.5">${pub.hkiApp}</p></div>
+                <div><p class="text-[10px] font-semibold text-slate-400 uppercase">Tanggal Penerimaan</p><p class="text-slate-200 mt-0.5">${pub.hkiDate}</p></div>
+                <div><p class="text-[10px] font-semibold text-slate-400 uppercase">Pemegang Paten</p><p class="text-slate-200 mt-0.5">${pub.hkiHolder}</p></div>
+                <div><p class="text-[10px] font-semibold text-slate-400 uppercase">Status</p><p class="text-amber-300 mt-0.5 font-semibold">${pub.hkiStatus}</p></div>
+                ${pub.hkiUrl && pub.hkiUrl !== '#' ? `<div class="pt-2"><a href="${pub.hkiUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-[11px] font-semibold px-4 py-2 bg-amber-600/30 text-amber-300 border border-amber-500/50 rounded-lg hover:bg-amber-600/50 transition">Lihat PDKI →</a></div>` : ''}
+              </div>
+            </div>
+          `;
+        } else {
+          return `
+            <div class="glass-panel rounded-2xl border border-cyan-500/40 overflow-hidden">
+              <div class="bg-gradient-to-r from-cyan-600/20 to-blue-600/20 px-6 py-4 border-b border-cyan-500/30">
+                <span class="text-[10px] font-bold bg-cyan-500/30 text-cyan-300 px-3 py-1 rounded-full uppercase tracking-wider">${pub.type}</span>
+                <h3 class="font-bold text-base text-white mt-2">${pub.title}</h3>
+              </div>
+              <div class="p-6 space-y-4 text-xs">
+                <p class="text-slate-300 leading-relaxed ${pubAlign}">${pub.desc}</p>
+                <div class="space-y-1 text-slate-400">
+                  <p><span class="font-semibold text-slate-300">Institusi:</span> ${pub.institution}</p>
+                  <p><span class="font-semibold text-slate-300">Tipe:</span> ${pub.cat}</p>
+                  <p><span class="font-semibold text-slate-300">Tahun:</span> ${pub.year}</p>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      }).join('');
+
+      document.getElementById('contact-email-text').textContent = data.contactEmail;
+      document.getElementById('contact-email-link').href = `mailto:${data.contactEmail}`;
+      document.getElementById('contact-linkedin-link').href = data.contactLinkedin;
+      document.getElementById('contact-phone-text').textContent = data.contactPhone;
+      document.getElementById('contact-phone-link').href = `tel:${data.contactPhone}`;
+      const contactDescEl = document.getElementById('contact-desc-view');
+      contactDescEl.textContent = data.contactDesc;
+      contactDescEl.className = `text-slate-400 mb-10 text-xs max-w-xl mx-auto leading-relaxed ${data.contactAlign}`;
+
+      lucide.createIcons();
+    }
+
+    function openLoginModal() { document.getElementById('loginModal').classList.remove('hidden'); document.getElementById('adminPinInput').value = ''; document.getElementById('loginStatusMessage').textContent = ''; }
+    function closeLoginModal() { document.getElementById('loginModal').classList.add('hidden'); }
+    function openAdminPanel() { 
+      closeLoginModal(); 
+      document.getElementById('adminPanelModal').classList.remove('hidden'); 
+      loadAllAdminForms();
+    }
+    function closeAdminPanel() { document.getElementById('adminPanelModal').classList.add('hidden'); }
+
+    function showCustomMsg(title, text) {
+      document.getElementById('customMsgTitle').textContent = title;
+      document.getElementById('customMsgText').textContent = text;
+      document.getElementById('customMsgModal').classList.remove('hidden');
+    }
+    function closeCustomMsg() { document.getElementById('customMsgModal').classList.add('hidden'); }
+
+    function switchAdminTab(targetId) {
+      document.querySelectorAll('.admin-tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-cyan-600', 'text-white');
+        btn.classList.add('text-slate-400', 'hover:bg-slate-800', 'hover:text-white');
+      });
+      document.getElementById(targetId).classList.remove('hidden');
+      const activeBtn = document.querySelector(`[data-target="${targetId}"]`);
+      if(activeBtn) {
+        activeBtn.classList.remove('text-slate-400', 'hover:bg-slate-800', 'hover:text-white');
+        activeBtn.classList.add('bg-cyan-600', 'text-white');
+      }
+    }
+
+    function loadAllAdminForms() {
+      const data = getAppData();
+      document.getElementById('admin-name').value = data.name || '';
+      document.getElementById('admin-title').value = data.title || '';
+      document.getElementById('admin-about-img').value = data.aboutImg || '';
+      document.getElementById('admin-about-width').value = data.aboutWidth || 'w-full';
+      document.getElementById('admin-about-height').value = data.aboutHeight || 'h-auto';
+      document.getElementById('admin-about-aspect').value = data.aboutAspect || 'aspect-[3/4]';
+      document.getElementById('admin-about-align').value = data.aboutAlign || 'text-justify';
+      document.getElementById('admin-about-desc').value = data.aboutText || '';
+
+      document.getElementById('skills-align').value = data.skillsAlign || 'text-justify';
+      renderAdminSkillsList();
+
+      document.getElementById('admin-exp-img').value = data.expImg || '';
+      document.getElementById('admin-exp-date').value = data.expDate || '';
+      document.getElementById('admin-exp-title').value = data.expTitle || '';
+      document.getElementById('admin-exp-role').value = data.expRole || '';
+      document.getElementById('admin-exp-desc').value = data.expDesc || '';
+      document.getElementById('admin-exp-align').value = data.expAlign || 'text-justify';
+
+      document.getElementById('projects-align').value = data.projectsAlign || 'text-justify';
+      renderAdminProjectsList();
+
+      document.getElementById('org-align').value = data.orgAlign || 'text-justify';
+      renderAdminOrgList();
+
+      document.getElementById('ach-align').value = data.achAlign || 'text-justify';
+      renderAdminAchList();
+
+      document.getElementById('edu-align').value = data.eduAlign || 'text-justify';
+      renderAdminEduList();
+
+      document.getElementById('cert-align').value = data.certAlign || 'text-justify';
+      renderAdminCertList();
+
+      document.getElementById('pub-align').value = data.pubAlign || 'text-justify';
+      renderAdminPubList();
+
+      document.getElementById('admin-contact-email').value = data.contactEmail || '';
+      document.getElementById('admin-contact-phone').value = data.contactPhone || '';
+      document.getElementById('admin-contact-linkedin').value = data.contactLinkedin || '';
+      document.getElementById('admin-contact-desc').value = data.contactDesc || '';
+      document.getElementById('admin-contact-align').value = data.contactAlign || 'text-center';
+    }
+
+    function renderAdminSkillsList() {
+      const data = getAppData();
+      const container = document.getElementById('admin-skills-list');
+      container.innerHTML = data.skills.map((s, idx) => `
+        <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl space-y-3">
+          <div class="flex justify-between items-center"><span class="text-xs font-bold text-cyan-400">Skill #${idx+1}</span><button onclick="removeSkillItem(${idx})" class="text-xs font-bold text-rose-400">Hapus</button></div>
+          <div class="grid grid-cols-2 gap-3">
+            <div><label class="text-[10px] text-slate-400 uppercase">Ikon</label><input type="text" id="skill-icon-${idx}" value="${s.icon || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+            <div><label class="text-[10px] text-slate-400 uppercase">Judul</label><input type="text" id="skill-title-${idx}" value="${s.title || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          </div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Deskripsi</label><textarea id="skill-desc-${idx}" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white">${s.desc || ''}</textarea></div>
+        </div>
+      `).join('');
+    }
+    function addSkillItem() { const data = getAppData(); data.skills.push({icon: "💡", title: "New Skill", desc: "Description"}); saveAppData(data); renderAdminSkillsList(); }
+    function removeSkillItem(idx) { const data = getAppData(); data.skills.splice(idx, 1); saveAppData(data); renderAdminSkillsList(); }
+
+    function renderAdminProjectsList() {
+      const data = getAppData();
+      const container = document.getElementById('admin-projects-list');
+      container.innerHTML = data.projects.map((p, idx) => `
+        <div class="p-5 bg-slate-900 border border-slate-800 rounded-2xl space-y-3">
+          <div class="flex justify-between items-center"><span class="text-xs font-bold text-cyan-400">Project #${idx+1}</span><button onclick="removeProjectItem(${idx})" class="text-xs font-bold text-rose-400">Hapus</button></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Judul Proyek</label><input type="text" id="proj-title-${idx}" value="${p.title || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">URL Foto Proyek</label><input type="text" id="proj-img-${idx}" value="${p.img || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">URL Tautan Proyek (Opsional)</label><input type="text" id="proj-url-${idx}" value="${p.url || '#'}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white" placeholder="https://..."></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Deskripsi</label><textarea id="proj-desc-${idx}" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white">${p.desc || ''}</textarea></div>
+        </div>
+      `).join('');
+    }
+    function addProjectItem() { const data = getAppData(); data.projects.push({title: "New Project", desc: "Description", img: "https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg", url: "#"}); saveAppData(data); renderAdminProjectsList(); }
+    function removeProjectItem(idx) { const data = getAppData(); data.projects.splice(idx, 1); saveAppData(data); renderAdminProjectsList(); }
+
+    function renderAdminOrgList() {
+      const data = getAppData();
+      const container = document.getElementById('admin-org-list');
+      container.innerHTML = data.organizations.map((o, idx) => `
+        <div class="p-5 bg-slate-900 border border-slate-800 rounded-2xl space-y-3">
+          <div class="flex justify-between items-center"><span class="text-xs font-bold text-cyan-400">Organization #${idx+1}</span><button onclick="removeOrgItem(${idx})" class="text-xs font-bold text-rose-400">Hapus</button></div>
+          <div class="grid grid-cols-2 gap-3">
+            <div><label class="text-[10px] text-slate-400 uppercase">Periode</label><input type="text" id="org-date-${idx}" value="${o.date || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+            <div><label class="text-[10px] text-slate-400 uppercase">Peran / Jabatan</label><input type="text" id="org-role-${idx}" value="${o.role || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          </div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Nama Organisasi</label><input type="text" id="org-title-${idx}" value="${o.title || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Deskripsi</label><textarea id="org-desc-${idx}" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white">${o.desc || ''}</textarea></div>
+        </div>
+      `).join('');
+    }
+    function addOrgItem() { const data = getAppData(); data.organizations.push({date: "2026", title: "Organization Name", role: "Role", desc: "Description"}); saveAppData(data); renderAdminOrgList(); }
+    function removeOrgItem(idx) { const data = getAppData(); data.organizations.splice(idx, 1); saveAppData(data); renderAdminOrgList(); }
+
+    function renderAdminAchList() {
+      const data = getAppData();
+      const container = document.getElementById('admin-ach-list');
+      container.innerHTML = data.achievements.map((a, idx) => `
+        <div class="p-5 bg-slate-900 border border-slate-800 rounded-2xl space-y-3">
+          <div class="flex justify-between items-center"><span class="text-xs font-bold text-cyan-400">Achievement #${idx+1}</span><button onclick="removeAchItem(${idx})" class="text-xs font-bold text-rose-400">Hapus</button></div>
+          <div class="grid grid-cols-2 gap-3">
+            <div><label class="text-[10px] text-slate-400 uppercase">Ikon</label><input type="text" id="ach-icon-${idx}" value="${a.icon || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+            <div><label class="text-[10px] text-slate-400 uppercase">Judul</label><input type="text" id="ach-title-${idx}" value="${a.title || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          </div>
+          <div><label class="text-[10px] text-slate-400 uppercase">URL Tautan Achievement (Opsional)</label><input type="text" id="ach-url-${idx}" value="${a.url || '#'}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white" placeholder="https://..."></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Deskripsi</label><textarea id="ach-desc-${idx}" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white">${a.desc || ''}</textarea></div>
+        </div>
+      `).join('');
+    }
+    function addAchItem() { const data = getAppData(); data.achievements.push({icon: "🏆", title: "Award", desc: "Description", url: "#"}); saveAppData(data); renderAdminAchList(); }
+    function removeAchItem(idx) { const data = getAppData(); data.achievements.splice(idx, 1); saveAppData(data); renderAdminAchList(); }
+
+    function renderAdminEduList() {
+      const data = getAppData();
+      const container = document.getElementById('admin-edu-list');
+      container.innerHTML = data.education.map((e, idx) => `
+        <div class="p-5 bg-slate-900 border border-slate-800 rounded-2xl space-y-3">
+          <div class="flex justify-between items-center"><span class="text-xs font-bold text-cyan-400">Education #${idx+1}</span><button onclick="removeEduItem(${idx})" class="text-xs font-bold text-rose-400">Hapus</button></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Periode</label><input type="text" id="edu-date-${idx}" value="${e.date || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Institusi & Jurusan</label><input type="text" id="edu-title-${idx}" value="${e.title || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Deskripsi</label><textarea id="edu-desc-${idx}" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white">${e.desc || ''}</textarea></div>
+        </div>
+      `).join('');
+    }
+    function addEduItem() { const data = getAppData(); data.education.push({date: "2022 - 2026", title: "Institution", desc: "Details"}); saveAppData(data); renderAdminEduList(); }
+    function removeEduItem(idx) { const data = getAppData(); data.education.splice(idx, 1); saveAppData(data); renderAdminEduList(); }
+
+    function renderAdminCertList() {
+      const data = getAppData();
+      const container = document.getElementById('admin-cert-list');
+      container.innerHTML = data.certifications.map((c, idx) => `
+        <div class="p-5 bg-slate-900 border border-slate-800 rounded-2xl space-y-3">
+          <div class="flex justify-between items-center"><span class="text-xs font-bold text-cyan-400">Certification #${idx+1}</span><button onclick="removeCertItem(${idx})" class="text-xs font-bold text-rose-400">Hapus</button></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Nama Sertifikat</label><input type="text" id="cert-title-${idx}" value="${c.title || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Detail / Penerbit</label><input type="text" id="cert-desc-${idx}" value="${c.desc || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">URL Tautan Sertifikat</label><input type="text" id="cert-url-${idx}" value="${c.url || '#'}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white" placeholder="https://..."></div>
+        </div>
+      `).join('');
+    }
+    function addCertItem() { const data = getAppData(); data.certifications.push({title: "Certificate Name", desc: "Issuer — Year", url: "#"}); saveAppData(data); renderAdminCertList(); }
+    function removeCertItem(idx) { const data = getAppData(); data.certifications.splice(idx, 1); saveAppData(data); renderAdminCertList(); }
+
+    function renderAdminPubList() {
+      const data = getAppData();
+      const container = document.getElementById('admin-pub-list');
+      container.innerHTML = data.publications.map((pub, idx) => `
+        <div class="p-5 bg-slate-900 border border-slate-800 rounded-2xl space-y-3">
+          <div class="flex justify-between items-center"><span class="text-xs font-bold text-cyan-400">Publikasi / HKI #${idx+1}</span><button onclick="removePubItem(${idx})" class="text-xs font-bold text-rose-400">Hapus</button></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Judul Kartu</label><input type="text" id="pub-title-${idx}" value="${pub.title || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Judul HKI (Kosongkan jika Publikasi Ilmiah)</label><input type="text" id="pub-hkiTitle-${idx}" value="${pub.hkiTitle || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          <div class="grid grid-cols-2 gap-3">
+            <div><label class="text-[10px] text-slate-400 uppercase">Nomor Permohonan HKI</label><input type="text" id="pub-hkiApp-${idx}" value="${pub.hkiApp || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+            <div><label class="text-[10px] text-slate-400 uppercase">Tanggal HKI</label><input type="text" id="pub-hkiDate-${idx}" value="${pub.hkiDate || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div><label class="text-[10px] text-slate-400 uppercase">Pemegang HKI</label><input type="text" id="pub-hkiHolder-${idx}" value="${pub.hkiHolder || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+            <div><label class="text-[10px] text-slate-400 uppercase">Status HKI</label><input type="text" id="pub-hkiStatus-${idx}" value="${pub.hkiStatus || ''}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          </div>
+          <div><label class="text-[10px] text-slate-400 uppercase">URL Tautan PDKI / Publikasi</label><input type="text" id="pub-hkiUrl-${idx}" value="${pub.hkiUrl || '#'}" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white"></div>
+          <div><label class="text-[10px] text-slate-400 uppercase">Deskripsi / Abstrak</label><textarea id="pub-desc-${idx}" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white">${pub.desc || ''}</textarea></div>
+        </div>
+      `).join('');
+    }
+    function addPubItem() { const data = getAppData(); data.publications.push({type: "Scientific Writing", title: "New Publication", desc: "Description", institution: "Institution", cat: "Type", year: "2026", hkiTitle: "", hkiApp: "", hkiDate: "", hkiHolder: "", hkiStatus: "", hkiUrl: "#"}); saveAppData(data); renderAdminPubList(); }
+    function removePubItem(idx) { const data = getAppData(); data.publications.splice(idx, 1); saveAppData(data); renderAdminPubList(); }
+
+    function saveAllChanges() {
+      const data = getAppData();
+      data.name = document.getElementById('admin-name').value;
+      data.title = document.getElementById('admin-title').value;
+      data.aboutImg = document.getElementById('admin-about-img').value;
+      data.aboutWidth = document.getElementById('admin-about-width').value;
+      data.aboutHeight = document.getElementById('admin-about-height').value;
+      data.aboutAspect = document.getElementById('admin-about-aspect').value;
+      data.aboutAlign = document.getElementById('admin-about-align').value;
+      data.aboutText = document.getElementById('admin-about-desc').value;
+
+      data.skillsAlign = document.getElementById('skills-align').value;
+      data.skills = data.skills.map((s, idx) => ({
+        icon: document.getElementById(`skill-icon-${idx}`).value,
+        title: document.getElementById(`skill-title-${idx}`).value,
+        desc: document.getElementById(`skill-desc-${idx}`).value
+      }));
+
+      data.expImg = document.getElementById('admin-exp-img').value;
+      data.expDate = document.getElementById('admin-exp-date').value;
+      data.expTitle = document.getElementById('admin-exp-title').value;
+      data.expRole = document.getElementById('admin-exp-role').value;
+      data.expDesc = document.getElementById('admin-exp-desc').value;
+      data.expAlign = document.getElementById('admin-exp-align').value;
+
+      data.projectsAlign = document.getElementById('projects-align').value;
+      data.projects = data.projects.map((p, idx) => ({
+        title: document.getElementById(`proj-title-${idx}`).value,
+        img: document.getElementById(`proj-img-${idx}`).value,
+        url: document.getElementById(`proj-url-${idx}`).value,
+        desc: document.getElementById(`proj-desc-${idx}`).value
+      }));
+
+      data.orgAlign = document.getElementById('org-align').value;
+      data.organizations = data.organizations.map((o, idx) => ({
+        date: document.getElementById(`org-date-${idx}`).value,
+        role: document.getElementById(`org-role-${idx}`).value,
+        title: document.getElementById(`org-title-${idx}`).value,
+        desc: document.getElementById(`org-desc-${idx}`).value
+      }));
+
+      data.achAlign = document.getElementById('ach-align').value;
+      data.achievements = data.achievements.map((a, idx) => ({
+        icon: document.getElementById(`ach-icon-${idx}`).value,
+        title: document.getElementById(`ach-title-${idx}`).value,
+        url: document.getElementById(`ach-url-${idx}`).value,
+        desc: document.getElementById(`ach-desc-${idx}`).value
+      }));
+
+      data.eduAlign = document.getElementById('edu-align').value;
+      data.education = data.education.map((e, idx) => ({
+        date: document.getElementById(`edu-date-${idx}`).value,
+        title: document.getElementById(`edu-title-${idx}`).value,
+        desc: document.getElementById(`edu-desc-${idx}`).value
+      }));
+
+      data.certAlign = document.getElementById('cert-align').value;
+      data.certifications = data.certifications.map((c, idx) => ({
+        title: document.getElementById(`cert-title-${idx}`).value,
+        desc: document.getElementById(`cert-desc-${idx}`).value,
+        url: document.getElementById(`cert-url-${idx}`).value
+      }));
+
+      data.pubAlign = document.getElementById('pub-align').value;
+      data.publications = data.publications.map((pub, idx) => ({
+        ...pub,
+        title: document.getElementById(`pub-title-${idx}`).value,
+        hkiTitle: document.getElementById(`pub-hkiTitle-${idx}`).value,
+        hkiApp: document.getElementById(`pub-hkiApp-${idx}`).value,
+        hkiDate: document.getElementById(`pub-hkiDate-${idx}`).value,
+        hkiHolder: document.getElementById(`pub-hkiHolder-${idx}`).value,
+        hkiStatus: document.getElementById(`pub-hkiStatus-${idx}`).value,
+        hkiUrl: document.getElementById(`pub-hkiUrl-${idx}`).value,
+        desc: document.getElementById(`pub-desc-${idx}`).value
+      }));
+
+      data.contactEmail = document.getElementById('admin-contact-email').value;
+      data.contactPhone = document.getElementById('admin-contact-phone').value;
+      data.contactLinkedin = document.getElementById('admin-contact-linkedin').value;
+      data.contactDesc = document.getElementById('admin-contact-desc').value;
+      data.contactAlign = document.getElementById('admin-contact-align').value;
+
+      saveAppData(data);
+      showCustomMsg("Berhasil", "Semua perubahan berhasil disimpan secara permanen!");
+    }
+
+    document.querySelector('.btn-login-admin').addEventListener('click', async function() {
+      const inputPin = document.getElementById('adminPinInput').value.trim();
+      const statusMsg = document.getElementById('loginStatusMessage');
+
+      if (!inputPin) {
+        statusMsg.textContent = "PIN tidak boleh kosong!";
+        statusMsg.style.color = "#ff4d4d";
+        return;
+      }
+
+      statusMsg.textContent = "Memeriksa...";
+      statusMsg.style.color = "#a0a0a0";
+
+      try {
+        let response = await fetch(WEB_APP_URL);
+        let dataList = await response.json();
+
+        let foundAccount = dataList.find(item => item.pin === inputPin);
+
+        if (!foundAccount) {
+          statusMsg.textContent = "Salah!";
+          statusMsg.style.color = "#ff4d4d";
+        } else if (foundAccount.status !== "Aktif") {
+          statusMsg.textContent = "Salah! Akun Tidak Aktif";
+          statusMsg.style.color = "#ff4d4d";
+        } else {
+          statusMsg.textContent = "Berhasil!";
+          statusMsg.style.color = "#2ecc71";
+
+          setTimeout(() => {
+            openAdminPanel();
+          }, 1000);
+        }
+      } catch (error) {
+        console.error("Gagal terhubung:", error);
+        statusMsg.textContent = "Terjadi kesalahan koneksi sistem.";
+        statusMsg.style.color = "#ff4d4d";
+      }
+    });
+
+    window.onload = function() {
+      if(!localStorage.getItem('mwr_portfolio_data')) {
+        localStorage.setItem('mwr_portfolio_data', JSON.stringify(defaultData));
+      } else {
+        const currentData = JSON.parse(localStorage.getItem('mwr_portfolio_data'));
+        if(!currentData.aboutImg) {
+          currentData.aboutImg = defaultData.aboutImg;
+          localStorage.setItem('mwr_portfolio_data', JSON.stringify(currentData));
+        }
+      }
+      renderPortfolio();
+    };
+  </script>
+</body>
+</html>
